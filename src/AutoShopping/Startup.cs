@@ -1,7 +1,12 @@
+using AutoShopping.Domain.Dto.Config;
+using AutoShopping.Filters;
+using AutoShopping.Infra.IoC;
+using AutoShopping.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,10 +33,29 @@ namespace AutoShopping
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddUseCases();
+            services.AddPresenters();
+            services.ConfiguraSwagger();
+            services.AddMediator();
+            services.AddBancoContext();
+            services.RegisterRepositories();
+
+            services.AddMvc(options => options.Filters.Add(new DefaultExceptionFilterAttribute()));
+
+            services.AddApiVersioning(p =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AutoShopping", Version = "v1" });
+                p.DefaultApiVersion = new ApiVersion(1, 0);
+                p.ReportApiVersions = true;
+                p.AssumeDefaultVersionWhenUnspecified = true;
             });
+
+            services.AddVersionedApiExplorer(p =>
+            {
+                p.GroupNameFormat = "'v'VVV";
+                p.SubstituteApiVersionInUrl = true;
+            });
+
+           // services.AddDbContext<BancoContext>(opt => opt.UseInMemoryDatabase("Banco"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +64,9 @@ namespace AutoShopping
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AutoShopping v1"));
             }
+
+            app.UsaSwaggerUi();
 
             app.UseHttpsRedirection();
 

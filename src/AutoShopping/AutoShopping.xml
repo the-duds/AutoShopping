@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoShopping</name>
+    </assembly>
+    <members>
+        <member name="T:AutoShopping.Controllers.VeiculoController">
+            <summary>
+            Rota Veiculos
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Controllers.VeiculoController.#ctor(FluentMediator.IMediator)">
+            <summary>
+            Controller responsável por rotas relacionadas a Veiculos.
+            </summary>
+            <param name="mediator">Interface de mediator para chamar os use case da aplicação.</param>
+        </member>
+        <member name="M:AutoShopping.Controllers.VeiculoController.PostVendedor(AutoShopping.Application.ViewModel.VeiculoModel,AutoShopping.Presenter.VeiculoPresenter)">
+            <summary>
+            Rota de Cadastro de Veículos
+            </summary>
+            <param name="veiculo">Modelo de informações para o cadastro de Veiculos.</param>
+            <param name="presenter">Apresentação de resultados da rota.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoShopping.Controllers.VendaController">
+            <summary>
+            Rotas Vendas
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Controllers.VendaController.#ctor(FluentMediator.IMediator)">
+            <summary>
+            Controller responsável por rotas relacionadas a Vendas.
+            </summary>
+            <param name="mediator">Interface de mediator para chamar os use case da aplicação.</param>
+        </member>
+        <member name="M:AutoShopping.Controllers.VendaController.PostVenda(AutoShopping.Application.ViewModel.VendaModel,AutoShopping.Presenter.VendaPresenter)">
+            <summary>
+            Rota de Cadastro de Vendas
+            </summary>
+            <param name="venda">Modelo de informações para o cadastro de Vendas.</param>
+            <param name="presenter">Apresentação de resultados da rota.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoShopping.Controllers.VendedorController">
+            <summary>
+            Rotas Vendedores.
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Controllers.VendedorController.#ctor(FluentMediator.IMediator)">
+            <summary>
+            Controller responsável por rotas relacionadas a Vendedores.
+            </summary>
+            <param name="mediator">Interface de mediator para chamar os use case da aplicação.</param>
+        </member>
+        <member name="M:AutoShopping.Controllers.VendedorController.PostVendedor(AutoShopping.Application.ViewModel.VendedorModel,AutoShopping.Presenter.VendedorPresenter)">
+            <summary>
+            Rota de Cadastro de Vendedores
+            </summary>
+            <param name="vendedor">Modelo de informações para o cadastro de vendedores.</param>
+            <param name="presenter">Apresentação de resultados da rota.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoShopping.Filters.DefaultExceptionFilterAttribute">
+            <summary>
+            Filtro de Exceções
+            </summary>
+        </member>
+        <member name="P:AutoShopping.Model.ErrorResult.Erros">
+            <summary>
+            Erros das notificações.
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Model.ErrorResult.#ctor(System.String)">
+            <summary>
+            Construtor
+            </summary>
+            <param name="erro">Nome do erro.</param>
+        </member>
+        <member name="M:AutoShopping.Model.ErrorResult.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Define lista de erros.
+            </summary>
+            <param name="erros">Lista de todos erros.</param>
+        </member>
+        <member name="M:AutoShopping.Model.ErrorResult.#ctor(System.Collections.Generic.IReadOnlyCollection{Flunt.Notifications.Notification})">
+            <summary>
+            Passa notificações dos erros.
+            </summary>
+            <param name="notifications">Notificações</param>
+        </member>
+        <member name="T:AutoShopping.Modules.FluentMediatorExtensions">
+            <summary>
+            Registra Mediator.
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Modules.FluentMediatorExtensions.AddMediator(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Metodo chamado no startup para registrar o Mediator
+            </summary>
+            <param name="services">Serviço de Mediator</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoShopping.Modules.PresenterExtensions">
+            <summary>
+            Registra Presenter.
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Modules.PresenterExtensions.AddPresenters(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Metodo chamado no startup para registrar os Presenter
+            </summary>
+            <param name="services">Serviço de Presenter</param>
+            <returns></returns>
+        </member>
+        <member name="T:AutoShopping.Modules.SwaggerExtensions">
+            <summary>
+            Swagger da aplicação.
+            </summary>
+        </member>
+        <member name="T:AutoShopping.Modules.UseCaseExtensions">
+            <summary>
+            Registra UseCase
+            </summary>
+        </member>
+        <member name="M:AutoShopping.Modules.UseCaseExtensions.AddUseCases(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Metodo chamado no startup para registrar os UseCase
+            </summary>
+            <param name="services">Serviço de UseCase</param>
+            <returns></returns>
+        </member>
+        <member name="P:AutoShopping.Presenter.VeiculoPresenter.ViewModel">
+            <summary>
+            O resultado viewmodel da rota.
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:AutoShopping.Presenter.VeiculoPresenter.NotFound(System.String)">
+            <summary>
+            Produz o resultado 404 notfound.
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VeiculoPresenter.Success(AutoShopping.Application.Interfaces.Boundaires.Veiculo.VeiculoOutput)">
+            <summary>
+            Produz o resultado de sucesso do endpoint.
+            </summary>
+            <param name="output">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VeiculoPresenter.WriteError(System.String)">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VeiculoPresenter.WriteError(System.Collections.Generic.IReadOnlyCollection{Flunt.Notifications.Notification})">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="errors">Coleção de erros de validação de dados.</param>
+        </member>
+        <member name="P:AutoShopping.Presenter.VendaPresenter.ViewModel">
+            <summary>
+            O resultado viewmodel da rota.
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendaPresenter.NotFound(System.String)">
+            <summary>
+            Produz o resultado 404 notfound.
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendaPresenter.Success(AutoShopping.Application.Interfaces.Boundaires.Venda.VendaOutput)">
+            <summary>
+            Produz o resultado de sucesso do endpoint.
+            </summary>
+            <param name="output">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendaPresenter.WriteError(System.String)">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendaPresenter.WriteError(System.Collections.Generic.IReadOnlyCollection{Flunt.Notifications.Notification})">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="errors">Coleção de erros de validação de dados.</param>
+        </member>
+        <member name="P:AutoShopping.Presenter.VendedorPresenter.ViewModel">
+            <summary>
+            O resultado viewmodel da rota.
+            </summary>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendedorPresenter.NotFound(System.String)">
+            <summary>
+            Produz o resultado 404 notfound.
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendedorPresenter.Success(AutoShopping.Application.Interfaces.Boundaires.Vendedor.VendedorOutput)">
+            <summary>
+            Produz o resultado de sucesso do endpoint.
+            </summary>
+            <param name="output">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendedorPresenter.WriteError(System.String)">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="message">Output da rota.</param>
+        </member>
+        <member name="M:AutoShopping.Presenter.VendedorPresenter.WriteError(System.Collections.Generic.IReadOnlyCollection{Flunt.Notifications.Notification})">
+            <summary>
+            Produz o resultado bad request 400, de forma amigável
+            </summary>
+            <param name="errors">Coleção de erros de validação de dados.</param>
+        </member>
+    </members>
+</doc>
