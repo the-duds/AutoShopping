@@ -44,5 +44,36 @@ namespace AutoShopping.Controllers
 
             return presenter.ViewModel;
         }
+        /// <summary>
+        /// Rota de Consultar Venda Realizada
+        /// </summary>
+        /// <param name="id">Identificador da Venda</param>
+        /// <returns></returns>
+
+        [HttpGet, Route("{id}")]
+        [ProducesResponseType(typeof(VendaOutput), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Get(string id)
+        {
+            
+
+            return null;
+        }
+        /// <summary>
+        /// Rota de Alterar a Venda Realizada
+        /// </summary>
+        /// <param name="id">Identificador da Venda</param>
+        /// <returns></returns>
+        [HttpPut, Route("{id}")]
+        [ProducesResponseType(typeof(VendaOutput), StatusCodes.Status202Accepted)]
+        [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Put(string id)
+        {
+
+
+            return null;
+        }
     }
 }

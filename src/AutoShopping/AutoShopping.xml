@@ -42,6 +42,20 @@
             <param name="presenter">Apresentação de resultados da rota.</param>
             <returns></returns>
         </member>
+        <member name="M:AutoShopping.Controllers.VendaController.Get(System.String)">
+            <summary>
+            Rota de Consultar Venda Realizada
+            </summary>
+            <param name="id">Identificador da Venda</param>
+            <returns></returns>
+        </member>
+        <member name="M:AutoShopping.Controllers.VendaController.Put(System.String)">
+            <summary>
+            Rota de Alterar a Venda Realizada
+            </summary>
+            <param name="id">Identificador da Venda</param>
+            <returns></returns>
+        </member>
         <member name="T:AutoShopping.Controllers.VendedorController">
             <summary>
             Rotas Vendedores.
